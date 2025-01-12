@@ -5,10 +5,14 @@ import { Tooltip } from 'react-tooltip'
 import './App.css'
 import SideBar from './components/SideBar/SideBar'
 import NavBar from './components/NavBar/NavBar'
+import { useStateContext } from './assets/contexts/contextProvider'
+import Home from './pages/Home'
 
 function App() {
 
-  const [activeMenu, setActiveMenu] = useState(true);
+  const context = useStateContext();
+  const activeMenu = context ? context.activeMenu : false;
+  
   return(
     <>
       <div>
@@ -45,16 +49,17 @@ function App() {
                 </div>
               </div>
 
+              {/* Routes */}
               <div>
                 <Routes>
 
                   {/* DashBoard */}
-                  <Route path='/' element="home" />
-                  <Route path='/main' element="home" />
+                  <Route path='/' element={<Home />} />
+                  <Route path='/main' element={<Home />} />
 
                   {/* Pages */}
                   <Route path='/users' element="User" />
-                  <Route path='/noti' element="Notification" />
+                  <Route path='/notifications' element="Notification" />
                   <Route path='/customers' element="Not used" />
 
                   {/* Apps */}
@@ -76,6 +81,7 @@ function App() {
                 
                 </Routes>
               </div>
+              
           </div>
         </BrowserRouter>
       </div>
