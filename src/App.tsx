@@ -42,46 +42,44 @@ function App() {
                 </div>
               )}
 
-              {/* Nav Bar */}
-              <div className={`${activeMenu ? ' md:ml-72': 'flex-2'} dark:bg-main-dark-bg bg-main-bg min-h-screen w-full`}>
+              {/* Nav Bar & Routes */}
+              <div className={`${activeMenu ? ' md:ml-72': 'flex-2'} dark:bg-main-dark-bg bg-main-bg min-h-screen w-full overflow-x-hidden`}>
                 <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                   <NavBar />
                 </div>
-              </div>
-
-              {/* Routes */}
-              <div>
-                <Routes>
-
-                  {/* DashBoard */}
-                  <Route path='/' element={<Home />} />
-                  <Route path='/main' element={<Home />} />
-
-                  {/* Pages */}
-                  <Route path='/users' element="User" />
-                  <Route path='/notifications' element="Notification" />
-                  <Route path='/customers' element="Not used" />
-
-                  {/* Apps */}
-                  <Route path ='/kanban' element='Kanban'/>
-                  <Route path ='/editor' element='Editor'/>
-                  <Route path ='/event' element='Event'/>
-                  <Route path ='/color-picker' element='ColorPicker'/>
-
-                  {/* Detail/Monitor */}
-                  <Route path="/line" element="Line" />
-                  <Route path="/area" element="Area" />
-                  <Route path="/bar" element="Bar" />
-                  <Route path="/pie" element="Pie" />
-                  <Route path="/financial" element="Financial" />
-                  <Route path="/color-mapping" element="ColorMapping" />
-                  <Route path="/pyramid" element="Pyramid" />
-                  <Route path="/stacked" element="Stacked" />
-                
-                
-                </Routes>
-              </div>
               
+                <div>
+                  <Routes>
+
+                    {/* DashBoard */}
+                    <Route path='/' element={<Home />} />
+                    <Route path='/main' element={<Home />} />
+
+                    {/* Pages */}
+                    <Route path='/users' element="User" />
+                    <Route path='/notifications' element="Notification" />
+                    <Route path='/customers' element="Not used" />
+
+                    {/* Apps */}
+                    <Route path ='/kanban' element='Kanban'/>
+                    <Route path ='/editor' element='Editor'/>
+                    <Route path ='/event' element='Event'/>
+                    <Route path ='/color-picker' element='ColorPicker'/>
+
+                    {/* Detail/Monitor */}
+                    <Route path="/line" element="Line" />
+                    <Route path="/area" element="Area" />
+                    <Route path="/bar" element="Bar" />
+                    <Route path="/pie" element="Pie" />
+                    <Route path="/financial" element="Financial" />
+                    <Route path="/color-mapping" element="ColorMapping" />
+                    <Route path="/pyramid" element="Pyramid" />
+                    <Route path="/stacked" element="Stacked" />
+                  
+                  
+                  </Routes>
+                </div>
+              </div>
           </div>
         </BrowserRouter>
       </div>
