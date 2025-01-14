@@ -7,15 +7,19 @@ import SideBar from './components/SideBar/SideBar'
 import NavBar from './components/NavBar/NavBar'
 import { useStateContext } from './assets/contexts/contextProvider'
 import Home from './pages/Home'
-
+import Notification from './pages/Notification'
+import Users from './pages/Employee'
+import Employee from './pages/Employee'
+import Event from './pages/Event'
+import Editors from './pages/Editor'
+import ThemeSetting from './components/Theme/ThemeSetting'
 function App() {
 
-  const context = useStateContext();
-  const activeMenu = context ? context.activeMenu : false;
+  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
   
   return(
     <>
-      <div>
+      <div className={`${currentMode === 'Dark' ? 'dark' : ''}`}>
         <BrowserRouter>
           <div className='flex relative dark:bg-main-dark-bg'>
 
@@ -25,7 +29,8 @@ function App() {
                 type='button'
                 data-tooltip-id='Settings' data-tooltip-content="Settings" data-tooltip-place="top"
                 className='text-3xl text-white p-3 rounded-full hover:drop-shadow-xl hover:bg-light-gray'
-                style={{ background: 'blue'}}
+                style={{ background: currentColor}}
+                onClick={() => setThemeSettings(true)}
               >
                 <FiSettings />
               </button>
@@ -49,21 +54,22 @@ function App() {
                 </div>
               
                 <div>
+                  {themeSettings && <ThemeSetting />}
                   <Routes>
 
                     {/* DashBoard */}
                     <Route path='/' element={<Home />} />
-                    <Route path='/main' element={<Home />} />
+                    <Route path='/home' element={<Home />} />
 
                     {/* Pages */}
-                    <Route path='/users' element="User" />
-                    <Route path='/notifications' element="Notification" />
+                    <Route path='/users' element={<Employee />} />
+                    <Route path='/notifications' element={<Notification />} />
                     <Route path='/customers' element="Not used" />
 
                     {/* Apps */}
                     <Route path ='/kanban' element='Kanban'/>
-                    <Route path ='/editor' element='Editor'/>
-                    <Route path ='/event' element='Event'/>
+                    <Route path ='/editor' element={<Editors />}/>
+                    <Route path ='/event' element={<Event />}/>
                     <Route path ='/color-picker' element='ColorPicker'/>
 
                     {/* Detail/Monitor */}

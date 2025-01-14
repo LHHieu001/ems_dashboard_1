@@ -79,7 +79,7 @@ const formattedDay = new Intl.DateTimeFormat('vi-VN', dayOptions).format(today);
 
   return (
 
-        <div className='flip-card m-3 cursor-pointer h-fit w-fit' onClick={handleFlip}>
+        <div className='flip-card m-3 cursor-pointer h-fit w-full' onClick={handleFlip}>
             <motion.div
                 className='flip-card-inner flex justify-center'
                 initial={false}
@@ -93,7 +93,7 @@ const formattedDay = new Intl.DateTimeFormat('vi-VN', dayOptions).format(today);
                     <p className='font-bold text-gray-400'>Hello, Good {hour < 12 ? "Morning" : "Evening"}</p>
                     <div className='flex justify-between items-center'>
                         <div className='hidden sm:block'>
-                            <h5 className='text-3xl font-medium text-black'>{formattedWeekDay}</h5>
+                            <h5 className='text-3xl font-medium'>{formattedWeekDay}</h5>
                             <h5 className='mt-0'>{formattedDay}</h5>
                         </div>
 
@@ -107,7 +107,7 @@ const formattedDay = new Intl.DateTimeFormat('vi-VN', dayOptions).format(today);
 
                         {weatherData.length > 0 && (
                             <div className=''>
-                                <h5 className='text-3xl font-medium text-black'>{weatherData[0].temp}°C</h5>
+                                <h5 className='text-3xl font-medium'>{weatherData[0].temp}°C</h5>
                                 <div className='flex flex-col'>
                                     <h5 className='text-sm'>Chỉ số uv: {weatherData[0].uv}</h5>
                                     <h5 className='text-sm'>Độ ẩm: {weatherData[0].humid}%</h5>
@@ -136,7 +136,7 @@ const formattedDay = new Intl.DateTimeFormat('vi-VN', dayOptions).format(today);
                                     }}
                                     src={getWeatherIcon(item?.icon)}
                                 ></img>
-                                <h5 className='text-base font-medium text-black'>{item.temp}°C</h5>
+                                <h5 className='text-base font-medium text-black dark:text-white'>{item.temp}°C</h5>
                             </div>
                         ))} 
                     </div>

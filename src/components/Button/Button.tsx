@@ -4,7 +4,7 @@ import React, { CSSProperties } from 'react'
 type ButtonProps = {
   bgColor: CSSProperties['backgroundColor'],
   color: CSSProperties['color'],
-  size: string,
+  size?: string,
   text: string,
   borderRadius: CSSProperties['borderRadius']
 }

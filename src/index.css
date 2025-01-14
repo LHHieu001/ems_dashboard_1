@@ -20,8 +20,8 @@ body{
   }
   
   .flip-card-front,
-  
-  .flip-card-back {
+  .flip-card-back,
+  .flip-card-back-clock {
     position: absolute;
     backface-visibility: hidden;
   }
@@ -29,6 +29,43 @@ body{
   .flip-card-back {
     transform: rotateX(180deg);
   }
+
+  .flip-card-back-clock {
+    transform: rotateY(180deg);
+  }
+
+  .border-red-aa{
+    color: red;
+}
+
+.css-l0h214-MuiResponsiveChart-container{
+    width: 300px !important;
+    height: 300px !important;
+    display: flex !important;
+    position: relative !important;
+    -webkit-box-flex: 1 !important;
+    flex-grow: 1 !important;
+    flex-direction: column !important;
+    -webkit-box-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+.pieContainer{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    margin: auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.css-4nmryk-MuiBackdrop-root-MuiModal-backdrop{
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
   
   @keyframes rotateGradient {
     0% {

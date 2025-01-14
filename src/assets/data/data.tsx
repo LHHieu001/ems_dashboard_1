@@ -12,6 +12,13 @@ import { GrLocation } from 'react-icons/gr';
 import { TiHomeOutline } from "react-icons/ti";
 import { FaMessage } from "react-icons/fa6";
 import { assets } from '../img';
+import { IoWaterOutline } from "react-icons/io5";
+import { FaWater } from "react-icons/fa";
+import { GiWaterTank } from "react-icons/gi";
+import { GiWaterTower } from "react-icons/gi";
+import { GiSpeedometer } from "react-icons/gi";
+import { FaWind } from "react-icons/fa";
+
 
 
 export const links = [
@@ -20,6 +27,7 @@ export const links = [
       links: [
         {
           name: 'home',
+          display: 'Trang chủ',
           icon: <TiHomeOutline />,
         },
       ],
@@ -30,16 +38,18 @@ export const links = [
       links: [
         {
           name: 'users',
+          display: 'Người dùng',
           icon: <IoMdContacts />,
         },
         {
           name: 'notifications',
+          display: 'Thông báo',
           icon: <FaMessage />,
         },
-        {
-          name: 'customers',
-          icon: <RiContactsLine />,
-        },
+        // {
+        //   name: 'customers',
+        //   icon: <RiContactsLine />,
+        // },
       ],
     },
     {
@@ -47,116 +57,134 @@ export const links = [
       links: [
         {
           name: 'event',
+          display: 'Sự kiện',
           icon: <AiOutlineCalendar />,
         },
-        {
-          name: 'kanban',
-          icon: <BsKanban />,
-        },
+        // {
+        //   name: 'kanban',
+        //   icon: <BsKanban />,
+        // },
         {
           name: 'editor',
+          display: 'Văn bản',
           icon: <FiEdit />,
         },
-        {
-          name: 'color-picker',
-          icon: <BiColorFill />,
-        },
+        // {
+        //   name: 'color-picker',
+        //   icon: <BiColorFill />,
+        // },
       ],
     },
     {
       title: 'Charts',
       links: [
         {
-          name: 'line',
-          icon: <AiOutlineStock />,
+          name: 'Nước thải',
+          display: 'Nước thải',
+          icon: <IoWaterOutline />,
         },
         {
-          name: 'area',
-          icon: <AiOutlineAreaChart />,
+          name: 'Nước ngầm',
+          display: 'Nước ngầm',
+          icon: <FaWater />,
         },
   
         {
-          name: 'bar',
-          icon: <AiOutlineBarChart />,
+          name: 'Nước mặt loại A',
+          display: 'Nước mặt loại A',
+          icon: <GiWaterTank />,
         },
         {
-          name: 'pie',
-          icon: <FiPieChart />,
+          name: 'Nước cấp',
+          display: 'Nước cấp',
+          icon: <GiWaterTower />,
         },
         {
-          name: 'financial',
-          icon: <RiStockLine />,
+          name: 'Đồng hồ nước',
+          display: 'Đồng hồ nước',
+          icon: <GiSpeedometer />,
         },
         {
-          name: 'color-mapping',
-          icon: <BsBarChart />,
+          name: 'Không khí',
+          display: 'Không khí',
+          icon: <FaWind />,
         },
         {
-          name: 'pyramid',
-          icon: <GiLouvrePyramid />,
+          name: 'Không khí QL1A',
+          display: 'Không khí QL1A',
+          icon: <FiStar />,
         },
-        {
-          name: 'stacked',
-          icon: <AiOutlineBarChart />,
-        },
+        // {
+        //   name: 'stacked',
+        //   icon: <AiOutlineBarChart />,
+        // },
       ],
     },
   ];
 
-  export const earningData = [
+  export const warningData = [
     {
-      icon: <MdOutlineSupervisorAccount />,
-      amount: '39,354',
+      icon: <IoWaterOutline />,
+      amount: '39',
       percentage: '-4%',
-      title: 'Customers',
+      title: 'Nước thải',
       iconColor: '#03C9D7',
       iconBg: '#E5FAFB',
-      pcColor: 'text-red-600',
+      pcColor: 'text-green-600',
     },
     {
-      icon: <BsBoxSeam />,
-      amount: '4,396',
+      icon: <FaWater />,
+      amount: '4',
       percentage: '+23%',
-      title: 'Products',
+      title: 'Nước ngầm',
       iconColor: 'rgb(255, 244, 229)',
       iconBg: 'rgb(254, 201, 15)',
-      pcColor: 'text-green-600',
-    },
-    {
-      icon: <FiBarChart />,
-      amount: '423,39',
-      percentage: '+38%',
-      title: 'Sales',
-      iconColor: 'rgb(228, 106, 118)',
-      iconBg: 'rgb(255, 244, 229)',
-      pcColor: 'text-green-600',
-    },
-    {
-      icon: <HiOutlineRefresh />,
-      amount: '39,354',
-      percentage: '-12%',
-      title: 'Refunds',
-      iconColor: 'rgb(0, 194, 146)',
-      iconBg: 'rgb(235, 250, 242)',
       pcColor: 'text-red-600',
     },
     {
-      icon: <FiShoppingCart />,
-      amount: '12,345',
-      percentage: '+5%',
-      title: 'Orders',
-      iconColor: 'rgb(255, 99, 132)',
-      iconBg: 'rgb(255, 205, 210)',
+      icon: <GiWaterTank />,
+      amount: '42',
+      percentage: '+38%',
+      title: 'Nước mặt loại A',
+      iconColor: 'rgb(228, 106, 118)',
+      iconBg: 'rgb(255, 244, 229)',
+      pcColor: 'text-red-600',
+    },
+    {
+      icon: <GiWaterTower />,
+      amount: '4',
+      percentage: '-12%',
+      title: 'Nước cấp',
+      iconColor: 'rgb(0, 194, 146)',
+      iconBg: 'rgb(235, 250, 242)',
       pcColor: 'text-green-600',
     },
     {
-      icon: <FiCreditCard />,
-      amount: '8,765',
+      icon: <GiSpeedometer />,
+      amount: '12',
+      percentage: '+5%',
+      title: 'Đồng hồ nước',
+      iconColor: 'rgb(255, 99, 132)',
+      iconBg: 'rgb(255, 205, 210)',
+      pcColor: 'text-red-600',
+    },
+    {
+      icon: <FaWind />,
+      amount: '8',
       percentage: '+10%',
-      title: 'Transactions',
+      title: 'Không khí',
       iconColor: 'rgb(54, 162, 235)',
       iconBg: 'rgb(227, 242, 253)',
-      pcColor: 'text-green-600',
+      pcColor: 'text-red-600',
+    },
+    {
+      icon: <FiStar />,
+      amount: '8',
+      percentage: '+8%',
+      title: 'Không khí QL1A',
+      iconColor: 'rgb(255, 206, 86)',
+      iconBg: 'rgb(255, 247, 205)',
+      pcColor: 'text-red-600',
     },
   ];
 
@@ -181,3 +209,82 @@ export const links = [
           'cloudy': assets.cloudy,
           'partly-cloudy-day': assets.partly_cloudy_day,
   };
+
+
+  export const employeeData = [
+    {
+        id: 1,
+        img: assets.boss,
+        name: 'Phạm Khải',
+        role: 'Admin',
+        email: 'pham.khai@example.com',
+        status: 'Active',
+    },
+    {
+        id: 2,
+        img: assets.Cocogoat,
+        name: 'Phụng Hoàng',
+        role: 'User',
+        email: 'phung.hoang@example.com',
+        status: 'Active',
+    },
+    {
+        id: 3,
+        img: assets.Linh,
+        name: 'Quang Lĩnh',
+        role: 'User',
+        email: 'quang.linh@example.com',
+        status: 'Inactive',
+    },
+    {
+        id: 4,
+        img: assets.Quan,
+        name: 'Minh Quân',
+        role: 'User',
+        email: 'minh.quan@example.com',
+        status: 'Active',
+    },
+    {
+        id: 5,
+        img: assets.user_avatar,
+        name: 'Hoàng Hiếu',
+        role: 'User',
+        email: 'hoang.hieu@example.com',
+        status: 'Inactive',
+    },
+    {
+        id: 6,
+        img: assets.Nhan,
+        name: 'Thành Nhân',
+        role: 'User',
+        email: 'thanh.nhan@example.com',
+        status: 'Inactive',
+    },
+];
+
+export const themeColors = [
+  {
+    name: 'blue-theme',
+    color: '#1A97F5',
+  },
+  {
+    name: 'green-theme',
+    color: '#03C9D7',
+  },
+  {
+    name: 'purple-theme',
+    color: '#7352FF',
+  },
+  {
+    name: 'red-theme',
+    color: '#FF5C8E',
+  },
+  {
+    name: 'indigo-theme',
+    color: '#1E4DB7',
+  },
+  {
+    color: '#FB9678',
+    name: 'orange-theme',
+  },
+];
