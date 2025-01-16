@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { BsCurrencyDollar } from 'react-icons/bs';
-import { IoIosMore } from 'react-icons/io';
+import React, { useEffect, useState, useRef } from 'react';
 import { GoDotFill } from "react-icons/go";
-import { warningData, SparklineAreaData, ecomPieChartData } from '@/assets/data/data';
+import { warningData} from '@/assets/data/data';
 import Stacked from '@/components/Charts/Stacked';
 import Button from '@/components/Button/Button';
 import Sparked from '@/components/Charts/Sparked';
+import ModalSparked from '@/components/Charts/ModalSparked';
 import { useStateContext } from '@/assets/contexts/contextProvider';
 import WeatherCard from '@/components/Cards/WeatherCard';
-import { assets } from '@/assets/img';
 import EventCard from '@/components/Cards/EventCard';
-import PieChartCustom from '@/components/Charts/PieChartCustom';
-import Box from '@mui/material/Box';
+import { MdOutlineCancel } from 'react-icons/md';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    p: 4,
-  };
+import Box from '@mui/material/Box';
+import ModalTable from '@/components/Tables/ModalTable';
+import { RxCross1 } from "react-icons/rx";
+import Home_LineChart from '@/components/Charts/Home_LineChart';
+import Home_PieChart from '@/components/Charts/Home_PieChart';
+import Home_Modal_LineChart from '@/components/Charts/Home_Modal_LineChart';
+import Home_Modal_Table from '@/components/Tables/Home_Modal_Table';
 
 const Home = () => {
 
-    const { currentColor } = useStateContext();
+    // const { currentColor, currentMode } = useStateContext();
+    const [openModal, setOpenModal] = useState(false);
+    const [style, setStyle] = useState({
+        title: '',
+        icon: undefined as JSX.Element | undefined,
+        color: '',
+        bgcolor: '',
+      });
     const [open, setOpen] = React.useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalType, setModalType] = useState('');
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
   return (
+    
     <div className='mt-24 md:mt-12'>
 
         <div className='flex flex-wrap lg:flex-nowrap justify-center'>
@@ -41,21 +44,22 @@ const Home = () => {
             <EventCard />
         </div>
 
-        <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-            <div className='flex m-3 flex-wrap justify-center gap-1 items-center'>
+        <div className='w-full rounded-xl p-3 mt-3'>
+                <div className='mt-3 flex flex-wrap justify-center gap-1 items-center'>
                 {warningData.map((item) => (
                     <div
                         key={item.title}
-                        className=' bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl'
+                        className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 md:w-56 p-4 pt-9 rounded-2xl'
                     >
-                        <div>
                             <button
                                 type='button'
                                 style={{ color: item.iconColor, backgroundColor: item.iconBg}}
                                 className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'
-                                onClick={handleOpen}
-                                >   
+                                onClick={() => {handleOpen(), setStyle((prev) => ({...prev, title: item.title, icon: item.icon, color: item.iconColor, bgcolor: item.iconBg}))
+                                                setModalTitle(`${item.title}`), setModalType(item.type)    }}
+                            >   
                                     {item.icon}
+                                    
                             </button>
                             <Modal
                                 open={open}
@@ -63,30 +67,52 @@ const Home = () => {
                                 aria-labelledby="modal-modal-title"
                                 aria-describedby="modal-modal-description"
                             >
-                                <Box sx={style}>
-                                <Typography id="modal-modal-title" variant="h6" component="h2">
-                                    {item.icon}
-                                </Typography>
-                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                </Typography>
+                                <Box className={`bg-white rounded-xl h-fit w-11/12 p-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
+                                <div id="modal-modal-title" className='flex flex-row items-center justify-between'>
+                                        <div className='flex flex-row items-center gap-x-2'>
+                                            <button
+                                                    type='button'
+                                                    style={{ color: style.color, backgroundColor: style.bgcolor}}
+                                                    className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'
+                                                >   
+                                                    {style.icon}
+                                            </button>
+                                            <div className='flex flex-col'>
+                                                <p className='hidden md:block text-slate-900 text-xl dark:text-white font-semibold'>Biểu đồ lưu lượng {style.title}</p>
+                                                <p className='text-gray-400'>Trong 24h</p>
+                                            </div>
+                                            
+                                        </div>
+                                        <button onClick={handleClose}>
+                                            <RxCross1 className='text-2xl mr-3 hover:cursor-pointer'/>
+                                        </button>
+                                             
+                                </div>
+
+                                <div id="modal-modal-description" className='mt-4 flex flex-col md:flex-row gap-4 overflow-auto scrollbar-hide' style={{maxHeight: '500px'}}>
+                                    {/* <ModalSparked
+                                        bgColor = {color}
+                                    /> */}
+                                    <Home_Modal_LineChart title={modalTitle} type={modalType} />
+                                    <Home_Modal_Table type={modalType} />
+                                    {/* <ModalTable /> */}
+                                </div>
                                 </Box>
                             </Modal>
-                        </div>
-                        
-
                         <p className='mt-3'>
                             <span className='text-lg font-semibold'>{item.amount}</span>
                             <span className={`text-sm ${item.pcColor} ml-2`}>{item.percentage}</span>
                         </p>
-                        <p className='text-sm text-gray-400 mt-1'>{item.title}</p>
+                        <p className='hidden xl:block text-sm text-gray-400 mt-1'>{item.title}</p>
+
+                        
 
                     </div>
                 ))}
             </div>
         </div>
 
-        <div className='flex gap-10 flex-wrap justify-center'>
+        {/* <div className='flex gap-10 flex-wrap justify-center'>
             <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg m-3 p-4 rounded-2xl md:w-780'>
                 <div className='flex justify-between'>
                     <p className='font-semibold text-xl'>Updates</p>
@@ -95,7 +121,7 @@ const Home = () => {
                             <span><GoDotFill /></span>
                             <span>Normal</span>
                         </p>
-                        <p className='flex items-center gap-2 text-blue-600 hover:drop-shadow-xl'>
+                        <p className='flex items-center gap-2 hover:drop-shadow-xl' style={{color:currentColor}}>
                             <span><GoDotFill /></span>
                             <span>Warnings</span>
                         </p>
@@ -121,7 +147,7 @@ const Home = () => {
                         <Sparked
                             height="150px"
                             width="250px"
-                            color="blue"
+                            color={currentColor}
                         />
                     </div>
 
@@ -138,12 +164,27 @@ const Home = () => {
                     <Stacked 
                         width="320px"
                         height="360px"
+                        warningColor={currentColor}
                     />
                 </div>
             </div>
             </div>
 
+        </div> */}
+
+        <div className='grid grid-cols-12 p-3 mt-3 gap-4'>
+
+            <div className='col-span-8 bg-white rounded-xl drop-shadow-xl'>
+                <Home_LineChart />
+            </div>
+
+            <div className='col-span-4 bg-white rounded-xl drop-shadow-xl'>
+                <Home_PieChart />
+            </div>
+
         </div>
+
+        <div className='h-12'></div>
         
         
     </div>

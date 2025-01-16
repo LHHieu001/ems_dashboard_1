@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}",],
+const flowbite = require("flowbite-react/tailwind");
+import { keepTheme } from "keep-react/keepTheme";
+
+const config = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}",
+    flowbite.content(),
+  ],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -45,5 +50,12 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+    flowbite.plugin(),
+  ],
 }
+
+
+
+export default keepTheme(config);

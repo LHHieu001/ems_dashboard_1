@@ -8,7 +8,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from 'keep-react'
-import { Tooltip } from 'react-tooltip'
 
 type SparkedProps = {
   height: CSSProperties['height']

@@ -1,0 +1,64 @@
+.react-datepicker__input-container > input{
+    border: none;
+    width: 140px;
+    text-align: center;
+
+}
+
+.card-line-chart{
+    z-index: 0;
+}
+
+
+.InputFromTo{
+    border-color: gray !important;
+    @apply flex items-center;
+
+}
+
+.InputFromTo > div{
+    @apply w-fit !important;
+}
+
+/* .react-datepicker__day--selected, .react-datepicker__day--in-range{
+    background-color: red;
+} */
+
+/* .react-datepicker__header {
+    background-color:red ;
+} */
+
+.MuiOutlinedInput-root{
+ 
+    height: 50px;
+    width: 160px;
+}
+
+.MuiInputLabel-root{
+    margin-top: -2px;
+}
+
+.MuiOutlinedInput-notchedOutline{
+    border: none !important;
+}
+
+.MuiInputBase-input{
+    padding-left: 8px;
+}
+
+.MuiInputLabel-animated{
+    background-color: white;
+    margin-top: -10px;
+}
+
+.css-113d811-MuiFormLabel-root-MuiInputLabel-root{
+    transform: translate(14px, -5px) scale(0.75) !important;
+}
+
+.css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input{
+    font-size: 15px !important;
+}
+
+.MuiFormLabel-root{
+    margin-top: -3px;
+}

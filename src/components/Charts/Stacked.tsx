@@ -12,9 +12,10 @@ import {
 type StackedProps = {
   height : CSSProperties['height']
   width: CSSProperties['width']
+  warningColor: CSSProperties['color']
 }
 
-const Stacked = ({height, width} : StackedProps) => {
+const Stacked = ({height, width, warningColor} : StackedProps) => {
 
   const chartData = [
     { month: 'January', normal: 186, warning: 80 },
@@ -26,13 +27,13 @@ const Stacked = ({height, width} : StackedProps) => {
   ]
 
   const chartConfig = {
-    desktop: {
+    warning: {
       label: 'Warning',
-      color: 'red',
+      color: warningColor,
     },
-    mobile: {
+    normal: {
       label: 'Normal',
-      color: 'gray',
+      color: '#cbd5e1',
     },
   } satisfies ChartConfig  
 
@@ -53,8 +54,8 @@ const Stacked = ({height, width} : StackedProps) => {
         />
         <ChartTooltip />
         {/* <ChartLegend verticalAlign="top" content={<ChartLegendContent />} /> */}
-       <Bar radius={0} barSize={50} dataKey="warning" stackId="a" fill="#60a5fa" />
-        <Bar radius={0} barSize={50} dataKey="normal" stackId="a" fill="#94a3b8" />
+       <Bar radius={0} barSize={50} dataKey="warning" stackId="a" fill={warningColor} />
+        <Bar radius={0} barSize={50} dataKey="normal" stackId="a" fill="#cbd5e1" />
       </BarChart>
     </ChartContainer>
   )
