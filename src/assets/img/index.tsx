@@ -8,6 +8,8 @@ import Linh from './quangLinh.png'
 import Quan from './minhQuan.png'
 import Cocogoat from './Cocogoat.png'
 import Nhan from './thanhNhan.png'
+import Vietnam from './flag-vietnam.svg'
+import England from './flag-england.svg'
 
 export const assets =  {
     cloudy,
@@ -19,5 +21,7 @@ export const assets =  {
     Linh,
     Quan,
     Cocogoat,
-    Nhan
+    Nhan,
+    Vietnam,
+    England
 }

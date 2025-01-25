@@ -11,6 +11,11 @@ import Chat from '../Chat/Chat';
 import Notification from '../Notification/Notification';
 import UserProfile from '../User/UserProfile';
 import { useStateContext } from '@/assets/contexts/contextProvider';
+import { IoMdNotifications } from "react-icons/io";
+import { IoMenu } from "react-icons/io5";
+import DarkLight from '../Button/DarkLight';
+import Language from '../Dropdown/Language';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 type NavButtonProps = {
@@ -18,10 +23,10 @@ type NavButtonProps = {
   customFunc: () => void;
   icon: JSX.Element;
   color?: CSSProperties['color'];
-  dotColor?: CSSProperties['color'];
+  noti?: boolean;
 };
 
-const NavButton = ({title, customFunc, icon, color, dotColor} : NavButtonProps) => {
+const NavButton = ({title, customFunc, icon, color, noti} : NavButtonProps) => {
   return(
     <button
       type='button'
@@ -30,11 +35,16 @@ const NavButton = ({title, customFunc, icon, color, dotColor} : NavButtonProps) 
       style={{ color }}
       className='relative text-xl rounded-full p-3 hover:bg-light-gray'
     >
-      <span
-        style={{ background: dotColor}}
-        className='absolute flex rounded-full h-2 w-2 right-2 top-2'
-      />
-        {icon}
+      {noti && 
+        <div style={{background: 'white'}} className='absolute flex justify-between items-center h-fit w-fot p-1 rounded-full top-2 right-2'>
+          <span
+            style={{ background: '#f41474'}}
+            className='flex rounded-full h-2 w-2'
+          />
+        </div>}
+      
+      
+      {icon}
     </button>
   )
 };
@@ -62,47 +72,54 @@ const NavBar = () => {
   return (
     <>
 
-      <div className='relative flex justify-between p-2 md:mx-6'>
+      
+      <div className='relative flex justify-between items-center p-3 shadow-sm'>
 
         <NavButton 
           title="Menu" 
           customFunc={() => setActiveMenu((prev) => !prev)}
-          icon={<AiOutlineMenu />}
-          color={currentColor}
+          icon={<IoMenu style={{fontSize: '24px'}}/>}
+          color={'#3c445c'}
         />
 
-        <div className='flex'>
+        <SearchBar />
 
-          <NavButton 
+
+        <div className='flex items-center'>
+
+          {/* <NavButton 
             title="Chat" 
             customFunc={() => handleClick('chat')}
             icon={<BsChatLeft />}
             color={currentColor}
             dotColor='#03C9D7'
-          />
+          /> */}
+
+          <Language />
+          <DarkLight />
 
           <NavButton 
             title="Notifications" 
             customFunc={() => handleClick('notification')}
-            icon={<RiNotification3Line />}
-            color={currentColor}
-            dotColor='#03C9D7'
+            icon={<IoMdNotifications style={{fontSize: '25px'}} />}
+            color={'#5c6c84'}
+            noti={true}
           />
 
           <div
             data-tooltip-id='NavButton' data-tooltip-content='Profile' data-tooltip-place="top"
-            className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray roudned-lg'
+            className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-full'
             onClick={() => handleClick('userProfile')}
           >
             <img 
               src={userAvatar}
               className='w-8 h-8 rounded-full'
             />
-            <p>
+            {/* <p>
               <span className='text-gray-400 text-14'>Hi, </span>{' '}
               <span className='text-gray-400 font-bold ml-1 text-14'>Hieu</span>
             </p>
-            <MdKeyboardArrowDown className='text-gray-400 text-14'/>
+            <MdKeyboardArrowDown className='text-gray-400 text-14'/> */}
           </div>
 
 
@@ -118,7 +135,7 @@ const NavBar = () => {
 
       </div>
 
-      <Tooltip id='NavButton'/>
+      {/* <Tooltip id='NavButton'/> */}
 
     </>
   )

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FillData from '@/assets/data/Filldata';
+import FillData from '@/assets/data/FillData';
 
 
 interface Props {

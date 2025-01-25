@@ -12,6 +12,8 @@ import Home_Modal_LineChart from '@/components/Charts/Home_Modal_LineChart';
 import Home_Modal_Table from '@/components/Tables/Home_Modal_Table';
 import Home_Table from '@/components/Tables/Home_Table';
 import Home_Map from '@/components/Maps/Home_Map';
+import GridLayout from "react-grid-layout";
+
 
 const Home = () => {
 
@@ -28,21 +30,32 @@ const Home = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const layout = [
+        { i: "b", x: 0, y: 0, w: 8, h: 2},
+        { i: "c", x: 8, y: 0, w: 4, h: 2}
+      ];
+
+    const Maindiv = document.querySelector('#mainDiv') as HTMLElement;
+    const width : number = Maindiv ? Maindiv.offsetWidth : 0;
+    console.log(width)
+
   return (
     
-    <div className='mt-24 md:mt-12'>
+    <div className='mt-10 md:mt-12' id="mainDiv">
 
-        <div className='flex flex-wrap lg:flex-nowrap justify-center'>
+        <h5 className='m-3 text-green-500 font-bold'>Trang tổng quan</h5>
+
+        {/* <div className='flex flex-wrap lg:flex-nowrap justify-center'>
             <WeatherCard />
             <EventCard />
-        </div>
+        </div> */}
 
         <div className='mt-3 p-3 overflow-x-scroll scrollbar-hide'>
                 <div className='flex flex-row justify-center gap-x-3 items-center min-w-max xl:min-w-0'>
                 {warningData.map((item) => (
                     <div
                         key={item.title}
-                        className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 w-44 p-4 pt-9 rounded-2xl shadow-lg'
+                        className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 w-44 p-4 pt-9 rounded-2xl'
                     >
                             <button
                                 type='button'
@@ -165,7 +178,7 @@ const Home = () => {
 
         </div> */}
 
-        <div className='grid grid-cols-12 p-3 mt-3 gap-4'>
+        {/* <div className='grid grid-cols-12 p-3 mt-3 gap-4'>
 
             <div className='col-span-12 xl:col-span-8 bg-white rounded-xl drop-shadow-xl'>
                 <Home_LineChart />
@@ -175,9 +188,28 @@ const Home = () => {
                 <Home_PieChart />
             </div>
 
-        </div>
+        </div> */}
 
-        <div className='grid grid-cols-12 mt-10 p-3 gap-4'>
+        <GridLayout
+            className="layout"
+            autoSize={true}
+            layout={layout}
+            cols={12}
+            rowHeight={300}
+            width={1220}
+        >
+            <div key="b" className='bg-white p-3 rounded-lg drop-shadow-lg'>
+                <Home_LineChart />
+            </div>
+
+
+            <div key="c" className='bg-white p-3 rounded-lg drop-shadow-lg'>
+                <Home_PieChart />
+            </div>
+
+        </GridLayout>
+
+        {/* <div className='grid grid-cols-12 mt-10 p-3 gap-4'>
 
             <div className='col-span-7 bg-white rounded-br-xl rounded-bl-xl drop-shadow-xl'>
                 <Home_Table />
@@ -187,7 +219,7 @@ const Home = () => {
                 <Home_Map />
             </div>
             
-        </div>
+        </div> */}
  
     </div>
   )

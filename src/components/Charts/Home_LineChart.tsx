@@ -55,9 +55,9 @@ const Home_LineChart = () => {
       <div className='grid grid-cols-12'>
         
         <div className='col-span-12'>
-             <div className='w-full flex flex-row justify-between items-center p-5 border-b-2'>
+             <div className='w-full flex flex-col gap-y-3 xl:flex-row xl:justify-between items-center p-5 border-b-2'>
                     <div className='flex items-center gap-x-3'>
-                        <IoIosWarning className='text-white bg-green-500 text-4xl p-1 rounded-full'/>
+                        <IoIosWarning className='text-white bg-green-500 h-fit w-fit text-3xl p-1 rounded-full '/>
                         <p className='text-lg font-bold'>Thống kê tổng số lượng cảnh báo theo thời gian</p>
                     </div>
 
@@ -69,12 +69,14 @@ const Home_LineChart = () => {
                     
                 </div>
         </div>
-        <div id="chart" className='col-span-9'>
+        <div id="chart" className='col-span-12 xl:col-span-9'>
             <ReactApexChart options={state.options} series={state.series} type="line" height={500} />
         </div>
         
         <div className='col-span-3 w-full border-l-2 p-2.5'>
+
             <div className='m-2 bg-emerald-50 dark:bg-emerald-200 rounded-tr-lg rounded-tl-lg rounded-br-3xl rounded-bl-3xl drop-shadow-lg'>
+                
                 <div className='w-full flex flex-col gap-y-5 p-3 ml-3'>
                     <div className='flex flex-col gap-y-1 pb-5 border-b-2'>
                         <p className='text-5xl font-bold'>200</p>
@@ -88,12 +90,18 @@ const Home_LineChart = () => {
                         <p className='text-5xl font-bold'>30</p>
                         <p className='flex items-center gap-x-2 text-gray-600'><div className='w-4 h-4 rounded-md bg-pink-500' />Chỉ số 2</p>
                     </div>
+                
                 </div>
             </div>
-            <p className='ml-3 flex items-center gap-x-3 font-bold mt-3'> 
-                <FaRegSmile className='text-4xl rounded-full p-2 bg-green-50 text-green-600' /> You're doing good!
-            </p>
-            <p className='ml-3 text-sm text-gray-500 mt-1'>Hiệu suất xử lý cảnh báo tăng 12% so với cùng kỳ tháng trước</p>
+
+            <div className='flex flex-col'>
+              <p className='ml-3 flex items-center gap-x-3 font-bold mt-3'> 
+                  <FaRegSmile className='text-4xl rounded-full p-2 bg-green-50 text-green-600' /> You're doing good!
+              </p>
+              <p className='ml-3 text-sm text-gray-500 mt-1'>Hiệu suất xử lý cảnh báo tăng 12% so với cùng kỳ tháng trước</p>
+            </div>
+            
+
         </div>
         
       </div>

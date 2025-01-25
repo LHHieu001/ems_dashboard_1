@@ -6,13 +6,16 @@ import './App.css'
 import SideBar from './components/SideBar/SideBar'
 import NavBar from './components/NavBar/NavBar'
 import { useStateContext } from './assets/contexts/contextProvider'
-import Home from './pages/Home'
+// import Home from './pages/Home'
+import Home from './pages/Home_Grid'
 import Notification from './pages/Notification'
 import Users from './pages/Employee'
 import Employee from './pages/Employee'
 import Event from './pages/Event'
 import Editors from './pages/Editor'
 import ThemeSetting from './components/Theme/ThemeSetting'
+import Translation from './pages/Translation'
+import Footer from './components/Footer/Footer'
 function App() {
 
   const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
@@ -21,7 +24,7 @@ function App() {
     <>
       <div className={`${currentMode === 'Dark' ? 'dark' : ''}`}>
         <BrowserRouter>
-          <div className='flex relative dark:bg-main-dark-bg'>
+          <div className='flex relative dark:bg-main-dark-bg bg-slate-50'>
 
             {/* Setting Button */}
             <div className='fixed right-4 bottom-4' style={{ zIndex: '1000'}}>
@@ -38,18 +41,21 @@ function App() {
 
             {/* Side Bar */}
             {activeMenu ? (
-                <div className='w-72 fixed sidebar bg-white dark:bg-secondary-dark-bg'>
+                <div className='h-96 w-48 m-4 fixed sidebar rounded-xl bg-white dark:bg-secondary-dark-bg'>
                   <SideBar />
                 </div>
               ) : (
-                <div className='w-0 dark:bg-secondary-dark-bg'>
+                <div className='h-96 w-20 m-4 fixed sidebar rounded-xl bg-white dark:bg-secondary-dark-bg'>
                   <SideBar />
                 </div>
               )}
 
               {/* Nav Bar & Routes */}
-              <div className={`${activeMenu ? ' md:ml-72': 'flex-2'} dark:bg-main-dark-bg bg-main-bg min-h-screen w-full overflow-x-hidden`}>
-                <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+              <div className={`${activeMenu ? ' md:ml-56': ' md:ml-32 flex-1'} dark:bg-main-dark-bg min-h-screen w-full overflow-x-hidden scrollbar-hide m-4`}>
+
+                <div 
+                  className='bg-white dark:bg-main-dark-bg navbar rounded-xl w-full'
+                >
                   <NavBar />
                 </div>
               
@@ -60,6 +66,7 @@ function App() {
                     {/* DashBoard */}
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
+                    <Route path='/Translate' element={<Translation />} />
 
                     {/* Pages */}
                     <Route path='/users' element={<Employee />} />
@@ -85,6 +92,8 @@ function App() {
                   
                   </Routes>
                 </div>
+                
+                <Footer />
               </div>
           </div>
         </BrowserRouter>

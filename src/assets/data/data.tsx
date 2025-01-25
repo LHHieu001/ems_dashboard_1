@@ -18,6 +18,10 @@ import { GiWaterTank } from "react-icons/gi";
 import { GiWaterTower } from "react-icons/gi";
 import { GiSpeedometer } from "react-icons/gi";
 import { FaWind } from "react-icons/fa";
+import { BsGrid1X2Fill } from "react-icons/bs";
+import { IoMdNotifications } from "react-icons/io";
+import { FaFileExport } from "react-icons/fa";
+import { RiBriefcase4Fill } from "react-icons/ri";
 
 
 
@@ -27,24 +31,35 @@ export const links = [
       links: [
         {
           name: 'home',
-          display: 'Trang chủ',
-          icon: <TiHomeOutline />,
+          display: 'Trang tổng quan',
+          icon: <BsGrid1X2Fill />,
         },
+        
       ],
     },
   
     {
       title: 'Pages',
       links: [
-        {
-          name: 'users',
-          display: 'Người dùng',
-          icon: <IoMdContacts />,
-        },
+        // {
+        //   name: 'users',
+        //   display: 'Người dùng',
+        //   icon: <IoMdContacts />,
+        // },
         {
           name: 'notifications',
           display: 'Thông báo',
-          icon: <FaMessage />,
+          icon: <IoMdNotifications />,
+        },
+        {
+          name: 'dataExport',
+          display: 'Xuất dữ liệu',
+          icon: <FaFileExport />,
+        },
+        {
+          name: 'monitor',
+          display: 'Quản lý phân hệ',
+          icon: <RiBriefcase4Fill />,
         },
         // {
         //   name: 'customers',
@@ -52,74 +67,74 @@ export const links = [
         // },
       ],
     },
-    {
-      title: 'Apps',
-      links: [
-        {
-          name: 'event',
-          display: 'Sự kiện',
-          icon: <AiOutlineCalendar />,
-        },
-        // {
-        //   name: 'kanban',
-        //   icon: <BsKanban />,
-        // },
-        {
-          name: 'editor',
-          display: 'Văn bản',
-          icon: <FiEdit />,
-        },
-        // {
-        //   name: 'color-picker',
-        //   icon: <BiColorFill />,
-        // },
-      ],
-    },
-    {
-      title: 'Charts',
-      links: [
-        {
-          name: 'Nước thải',
-          display: 'Nước thải',
-          icon: <IoWaterOutline />,
-        },
-        {
-          name: 'Nước ngầm',
-          display: 'Nước ngầm',
-          icon: <FaWater />,
-        },
+    // {
+    //   title: 'Apps',
+    //   links: [
+    //     {
+    //       name: 'event',
+    //       display: 'Sự kiện',
+    //       icon: <AiOutlineCalendar />,
+    //     },
+    //     // {
+    //     //   name: 'kanban',
+    //     //   icon: <BsKanban />,
+    //     // },
+    //     {
+    //       name: 'editor',
+    //       display: 'Văn bản',
+    //       icon: <FiEdit />,
+    //     },
+    //     // {
+    //     //   name: 'color-picker',
+    //     //   icon: <BiColorFill />,
+    //     // },
+    //   ],
+    // },
+    // {
+    //   title: 'Charts',
+    //   links: [
+    //     {
+    //       name: 'Nước thải',
+    //       display: 'Nước thải',
+    //       icon: <IoWaterOutline />,
+    //     },
+    //     {
+    //       name: 'Nước ngầm',
+    //       display: 'Nước ngầm',
+    //       icon: <FaWater />,
+    //     },
   
-        {
-          name: 'Nước mặt loại A',
-          display: 'Nước mặt loại A',
-          icon: <GiWaterTank />,
-        },
-        {
-          name: 'Nước cấp',
-          display: 'Nước cấp',
-          icon: <GiWaterTower />,
-        },
-        {
-          name: 'Đồng hồ nước',
-          display: 'Đồng hồ nước',
-          icon: <GiSpeedometer />,
-        },
-        {
-          name: 'Không khí',
-          display: 'Không khí',
-          icon: <FaWind />,
-        },
-        {
-          name: 'Không khí QL1A',
-          display: 'Không khí QL1A',
-          icon: <FiStar />,
-        },
-        // {
-        //   name: 'stacked',
-        //   icon: <AiOutlineBarChart />,
-        // },
-      ],
-    },
+    //     {
+    //       name: 'Nước mặt loại A',
+    //       display: 'Nước mặt loại A',
+    //       icon: <GiWaterTank />,
+    //     },
+    //     {
+    //       name: 'Nước cấp',
+    //       display: 'Nước cấp',
+    //       icon: <GiWaterTower />,
+    //     },
+    //     {
+    //       name: 'Đồng hồ nước',
+    //       display: 'Đồng hồ nước',
+    //       icon: <GiSpeedometer />,
+    //     },
+    //     {
+    //       name: 'Không khí',
+    //       display: 'Không khí',
+    //       icon: <FaWind />,
+    //     },
+    //     {
+    //       name: 'Không khí QL1A',
+    //       display: 'Không khí QL1A',
+    //       icon: <FiStar />,
+    //     },
+    //     // {
+    //     //   name: 'stacked',
+    //     //   icon: <AiOutlineBarChart />,
+    //     // },
+    //   ],
+    // },
   ];
 
   export const warningData = [
@@ -293,5 +308,80 @@ export const themeColors = [
   {
     color: '#FB9678',
     name: 'orange-theme',
+  },
+];
+
+export const userProfileData = [
+  {
+    icon: <BsCurrencyDollar />,
+    title: 'My Profile',
+    desc: 'Account Settings',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+  },
+  {
+    icon: <BsShield />,
+    title: 'My Inbox',
+    desc: 'Messages & Emails',
+    iconColor: 'rgb(0, 194, 146)',
+    iconBg: 'rgb(235, 250, 242)',
+  },
+  {
+    icon: <FiCreditCard />,
+    title: 'My Tasks',
+    desc: 'To-do and Daily Tasks',
+    iconColor: 'rgb(255, 244, 229)',
+    iconBg: 'rgb(254, 201, 15)',
+  },
+];
+
+export const notiData = [
+  {
+    title: 'Hệ thống cảnh báo',
+    message: 'Lỗi kết nối cơ sở dữ liệu',
+    desc: 'Phân hệ quản lý dữ liệu gặp sự cố kết nối. Vui lòng kiểm tra lại.',
+    time: '9:08 AM',
+  },
+  {
+    title: 'Cập nhật hệ thống',
+    message: 'Phiên bản mới đã sẵn sàng',
+    desc: 'Phiên bản 2.3.0 đã được phát hành. Nhấp để cập nhật.',
+    time: '11:56 AM',
+  },
+  {
+    title: 'Cảnh báo bảo mật',
+    message: 'Đăng nhập từ thiết bị lạ',
+    desc: 'Một thiết bị lạ đã đăng nhập vào tài khoản của bạn từ IP 192.168.1.100.',
+    time: '4:39 AM',
+  },
+  {
+    title: 'Thông báo từ quản trị viên',
+    message: 'Bảo trì hệ thống',
+    desc: 'Hệ thống sẽ tạm ngừng hoạt động từ 2:00 AM đến 4:00 AM để bảo trì.',
+    time: '1:12 AM',
+  },
+  {
+    title: 'Cảnh báo hiệu suất',
+    message: 'CPU quá tải',
+    desc: 'Mức sử dụng CPU vượt quá 90%. Vui lòng kiểm tra các tiến trình đang chạy.',
+    time: '3:45 PM',
+  },
+  {
+    title: 'Thông báo từ người dùng',
+    message: 'Yêu cầu hỗ trợ mới',
+    desc: 'Người dùng "Nguyễn Văn A" đã gửi yêu cầu hỗ trợ về lỗi thanh toán.',
+    time: '10:20 AM',
+  },
+  {
+    title: 'Cảnh báo hệ thống',
+    message: 'Ổ cứng sắp đầy',
+    desc: 'Dung lượng ổ cứng chỉ còn 5%. Vui lòng dọn dẹp hoặc thêm dung lượng.',
+    time: '7:30 PM',
+  },
+  {
+    title: 'Thông báo từ ứng dụng',
+    message: 'Cập nhật cài đặt',
+    desc: 'Cài đặt bảo mật đã được cập nhật. Vui lòng xem lại các thay đổi.',
+    time: '6:15 AM',
   },
 ];

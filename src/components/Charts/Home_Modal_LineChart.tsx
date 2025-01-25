@@ -9,7 +9,7 @@ import {
   ChartTooltipContent,
 } from 'keep-react'
 import MyDatePicker from '../DatePicker/MyDatePicker'
-import FillData from '@/assets/data/Filldata'
+import FillData from '@/assets/data/FillData'
 import FillterData from '@/assets/data/FillterData'
 import { Moment } from 'moment';
 
@@ -110,11 +110,11 @@ const Home_Modal_LineChart = ({title, type} : ModalProps) => {
         });
     }, [plotData])
 
-    useEffect(() => {
-        if (startDate && endDate) {
-            setTimeData(FillterData(plotData, startDate, endDate));
-        }
-     }, [startDate, endDate]);
+    // useEffect(() => {
+    //     if (startDate && endDate) {
+    //         setTimeData(FillterData(plotData, startDate, endDate));
+    //     }
+    //  }, [startDate, endDate]);
 
     const chartData = transformData(timeData);
     const chartConfig = generateChartConfig(timeData);
@@ -159,9 +159,9 @@ const Home_Modal_LineChart = ({title, type} : ModalProps) => {
             )}
             </div>
 
-            <div className='z-10'>
+            {/* <div className='z-10'>
                 <MyDatePicker handleSearch={handleSearch}/>
-            </div>
+            </div> */}
             
         </div>
 
