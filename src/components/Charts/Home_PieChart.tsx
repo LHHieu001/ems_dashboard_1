@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactApexChart from 'react-apexcharts'
 import { IoIosWarning } from "react-icons/io";
+import { IoPieChartSharp } from "react-icons/io5";
 
 const Home_PieChart = () => {
 
@@ -89,14 +90,14 @@ const Home_PieChart = () => {
       };
 
   return (
-    <div className='w-full flex flex-col gap-y-2 p-3'>
+    <div className='w-full flex flex-col gap-y-2'>
 
-        <div className='w-full flex flex-row items-center p-2 border-b-1 gap-x-2'>
-            <IoIosWarning className='text-white bg-green-500 text-4xl p-1 rounded-full'/>
+        <div className='w-full flex flex-row items-center py-2 px-2 border-b-1 gap-x-2'>
+            <IoPieChartSharp className='text-white bg-green-500 h-fit w-fit text-2xl p-1 rounded-full'/>
             <p className='text-lg font-bold'>Thống kê cảnh báo theo phân hệ</p>
         </div>
     
-        <div className='flex flex-col'>
+        <div className='flex flex-col p-3'>
 
             <div className='flex flex-row justify-between items-center'>
 

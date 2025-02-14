@@ -22,193 +22,178 @@ import { BsGrid1X2Fill } from "react-icons/bs";
 import { IoMdNotifications } from "react-icons/io";
 import { FaFileExport } from "react-icons/fa";
 import { RiBriefcase4Fill } from "react-icons/ri";
+import { MdOutlineWaterDamage } from "react-icons/md";
+import { MdOutlineWater } from "react-icons/md";
+import { MdOutlineTsunami } from "react-icons/md";
+import { CgDropInvert } from "react-icons/cg";
+import { CgDropOpacity } from "react-icons/cg";
+import { FaCarSide } from "react-icons/fa";
+import { MdOutlineTraffic } from "react-icons/md";
 
 
 
 export const links = [
     {
-      title: 'Dashboard',
-      links: [
-        {
-          name: 'home',
-          display: 'Trang tổng quan',
-          icon: <BsGrid1X2Fill />,
-        },
-        
-      ],
+      name: 'home',
+      display: 'Trang tổng quan',
+      icon: <BsGrid1X2Fill />,
     },
-  
     {
-      title: 'Pages',
-      links: [
-        // {
-        //   name: 'users',
-        //   display: 'Người dùng',
-        //   icon: <IoMdContacts />,
-        // },
-        {
-          name: 'notifications',
-          display: 'Thông báo',
-          icon: <IoMdNotifications />,
-        },
-        {
-          name: 'dataExport',
-          display: 'Xuất dữ liệu',
-          icon: <FaFileExport />,
-        },
-        {
-          name: 'monitor',
-          display: 'Quản lý phân hệ',
-          icon: <RiBriefcase4Fill />,
-        },
-        // {
-        //   name: 'customers',
-        //   icon: <RiContactsLine />,
-        // },
-      ],
+      name: 'notifications',
+      display: 'Thông báo',
+      icon: <IoMdNotifications />,
+    },
+    {
+      name: 'dataExport',
+      display: 'Xuất dữ liệu',
+      icon: <FaFileExport />,
     },
     // {
-    //   title: 'Apps',
-    //   links: [
-    //     {
-    //       name: 'event',
-    //       display: 'Sự kiện',
-    //       icon: <AiOutlineCalendar />,
-    //     },
-    //     // {
-    //     //   name: 'kanban',
-    //     //   icon: <BsKanban />,
-    //     // },
-    //     {
-    //       name: 'editor',
-    //       display: 'Văn bản',
-    //       icon: <FiEdit />,
-    //     },
-    //     // {
-    //     //   name: 'color-picker',
-    //     //   icon: <BiColorFill />,
-    //     // },
-    //   ],
+    //   name: 'monitor',
+    //   display: 'Quản lý phân hệ',
+    //   icon: <RiBriefcase4Fill />,
     // },
-    // {
-    //   title: 'Charts',
-    //   links: [
-    //     {
-    //       name: 'Nước thải',
-    //       display: 'Nước thải',
-    //       icon: <IoWaterOutline />,
-    //     },
-    //     {
-    //       name: 'Nước ngầm',
-    //       display: 'Nước ngầm',
-    //       icon: <FaWater />,
-    //     },
+]
+
+export const subdivisionLinks = [
+  {
+    name: 'wasteWater',
+    display: 'Nước thải',
+    icon: <MdOutlineWaterDamage />,
+  },
+  {
+    name: 'groundWater',
+    display: 'Nước ngầm',
+    icon: <MdOutlineWater />,
+  },
+  {
+    name: 'surfaceAWater',
+    display: 'Nước mặt loại A',
+    icon: <MdOutlineTsunami />,
+  },
+  {
+    name: 'supplyWater',
+    display: 'Nước cấp',
+    icon: <CgDropInvert />,
+  },
+  {
+    name: 'smartWater',
+    display: 'ĐH nước',
+    icon: <CgDropOpacity />,
+  },
+  {
+    name: 'Air',
+    display: 'Không khí',
+    icon: <FaCarSide />,
+  },
+  {
+    name: '1aAir',
+    display: 'Không khí QL1A',
+    icon: <MdOutlineTraffic />,
+  },
+  // {
+  //   name: 'monitor',
+  //   display: 'Quản lý phân hệ',
+  //   icon: <RiBriefcase4Fill />,
+  // },
+]
   
-    //     {
-    //       name: 'Nước mặt loại A',
-    //       display: 'Nước mặt loại A',
-    //       icon: <GiWaterTank />,
-    //     },
-    //     {
-    //       name: 'Nước cấp',
-    //       display: 'Nước cấp',
-    //       icon: <GiWaterTower />,
-    //     },
-    //     {
-    //       name: 'Đồng hồ nước',
-    //       display: 'Đồng hồ nước',
-    //       icon: <GiSpeedometer />,
-    //     },
-    //     {
-    //       name: 'Không khí',
-    //       display: 'Không khí',
-    //       icon: <FaWind />,
-    //     },
-    //     {
-    //       name: 'Không khí QL1A',
-    //       display: 'Không khí QL1A',
-    //       icon: <FiStar />,
-    //     },
-    //     // {
-    //     //   name: 'stacked',
-    //     //   icon: <AiOutlineBarChart />,
-    //     // },
-    //   ],
-    // },
-  ];
+  
 
   export const warningData = [
     {
-      icon: <IoWaterOutline />,
+      icon: <MdOutlineWaterDamage />,
       amount: '39',
-      percentage: '-4%',
+      percentage: '4%',
       title: 'Nước thải',
-      type:'wasteWater',
-      iconColor: '#03C9D7',
-      iconBg: '#E5FAFB',
-      pcColor: 'text-green-600',
+      type: 'wasteWater',
+      iconColor: 'white',
+      iconBg: '#ff5c7c',
+      pcColor: 'text-blue-600',
+      status: 'decrease',
+      shadowColor: '#ff5c7c',
+      hoverColor: '#ffe4e4',
     },
     {
-      icon: <FaWater />,
+      icon: <MdOutlineWater />,
       amount: '4',
-      percentage: '+23%',
+      percentage: '23%',
       title: 'Nước ngầm',
-      type:'groundWater',
-      iconColor: '#fdba74',
-      iconBg: '#ffedd5',
+      type: 'groundWater',
+      iconColor: 'white',
+      iconBg: '#c080f8',
       pcColor: 'text-red-600',
+      status: 'increase',
+      shadowColor: '#c080f8',
+      hoverColor: '#f8ecfc'
     },
     {
-      icon: <GiWaterTank />,
+      icon: <MdOutlineTsunami />,
       amount: '42',
-      percentage: '+38%',
+      percentage: '38%',
       title: 'Nước mặt loại A',
-      type:'aWater',
-      iconColor: 'rgb(228, 106, 118)',
-      iconBg: 'rgb(255, 244, 229)',
+      type: 'aWater',
+      iconColor: 'white',
+      iconBg: '#ff74f4',
       pcColor: 'text-red-600',
+      status: 'increase',
+      shadowColor: '#ff74f4',
+      hoverColor: '#ffd4fc'
     },
     {
-      icon: <GiWaterTower />,
+      icon: <CgDropInvert />,
       amount: '4',
-      percentage: '-12%',
+      percentage: '12%',
       title: 'Nước cấp',
-      type:'supplyWater',
-      iconColor: 'rgb(0, 194, 146)',
-      iconBg: 'rgb(235, 250, 242)',
-      pcColor: 'text-green-600',
+      type: 'supplyWater',
+      iconColor: 'white',
+      iconBg: '#ff947a',
+      pcColor: 'text-blue-600',
+      status: 'decrease',
+      shadowColor: '#ff947a',
+      hoverColor: '#fff4dc'
     },
     {
-      icon: <GiSpeedometer />,
+      icon: <CgDropOpacity />,
       amount: '12',
-      percentage: '+5%',
-      title: 'Đồng hồ nước',
-      type:'smartWater',
-      iconColor: 'rgb(255, 99, 132)',
-      iconBg: 'rgb(255, 205, 210)',
+      percentage: '5%',
+      title: 'ĐH nước',
+      type: 'smartWater',
+      iconColor: 'white',
+      iconBg: '#6064e4',
       pcColor: 'text-red-600',
+      status: 'increase',
+      shadowColor: '#6064e4',
+      hoverColor: '#c8ccfc'
     },
     {
-      icon: <FaWind />,
+      icon: <FaCarSide />,
       amount: '8',
-      percentage: '+10%',
+      percentage: '10%',
       title: 'Không khí',
-      type:'Air',
-      iconColor: 'rgb(54, 162, 235)',
-      iconBg: 'rgb(227, 242, 253)',
+      type: 'Air',
+      iconColor: 'white',
+      iconBg: '#3ce054',
       pcColor: 'text-red-600',
+      status: 'increase',
+      shadowColor: '#3ce054',
+      hoverColor: '#e0fce4'
     },
     {
-      icon: <FiStar />,
+      icon: <MdOutlineTraffic />,
       amount: '8',
-      percentage: '+8%',
+      percentage: '8%',
       title: 'Không khí QL1A',
-      type:'1aAir',
-      iconColor: 'rgb(255, 206, 86)',
-      iconBg: 'rgb(255, 247, 205)',
+      type: '1aAir',
+      iconColor: 'white',
+      iconBg: '#3ce054',
       pcColor: 'text-red-600',
+      status: 'increase',
+      shadowColor: '#3ce054',
+      hoverColor: '#c8ecc4'
     },
-  ];
+];
+
 
   export const SparklineAreaData = [
     { x: 1, yval: 2 },

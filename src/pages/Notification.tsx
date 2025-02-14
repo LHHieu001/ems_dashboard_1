@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Dropdown, DropdownAction, DropdownContent, DropdownItem } from 'keep-react'
 import Header from '@/components/Header/Header'
 import { HiDotsHorizontal } from "react-icons/hi";
+import { useOutletContext } from 'react-router-dom';
 
 
 
@@ -11,87 +12,105 @@ interface notification {
     timestamp: string;
 }
 
+type OutletContextType = { useremail : string; lastJsonMessage: any, messages: any[], sendMessage: any};
+
+
 const Notification = () => {
 
-    const notificationData = [
-        {
-            id: 1,
-            message: 'This is notification 1.',
-            timestamp: '09:00:00 13/01/2025',
-        },
-        {
-            id: 2,
-            message: 'This is notification 2.',
-            timestamp: '14:30:00 12/01/2025',
-        },
-        {
-            id: 3,
-            message: 'This is notification 3.',
-            timestamp: '12:00:00 12/01/2025',
-        },
-        {
-            id: 4,
-            message: 'This is notification 4.',
-            timestamp: '08:45:00 13/01/2025',
-        },
-        {
-            id: 5,
-            message: 'This is notification 5.',
-            timestamp: '16:15:00 11/01/2025',
-        },
-        {
-            id: 6,
-            message: 'This is notification 6.',
-            timestamp: '10:20:00 10/01/2025',
-        },
-        {
-            id: 7,
-            message: 'This is notification 7.',
-            timestamp: '11:50:00 09/01/2025',
-        },
-        {
-            id: 8,
-            message: 'This is notification 8.',
-            timestamp: '15:00:00 08/01/2025',
-        },
-        {
-            id: 9,
-            message: 'This is notification 9.',
-            timestamp: '13:30:00 07/01/2025',
-        },
-        {
-            id: 10,
-            message: 'This is notification 10.',
-            timestamp: '09:45:00 06/01/2025',
-        },
-        {
-            id: 11,
-            message: 'This is notification 11.',
-            timestamp: '18:30:00 05/01/2025',
-        },
-        {
-            id: 12,
-            message: 'This is notification 12.',
-            timestamp: '20:10:00 04/01/2025',
-        },
-        {
-            id: 13,
-            message: 'This is notification 13.',
-            timestamp: '21:45:00 03/01/2025',
-        },
-        {
-            id: 14,
-            message: 'This is notification 14.',
-            timestamp: '08:15:00 02/01/2025',
-        },
-        {
-            id: 15,
-            message: 'This is notification 15.',
-            timestamp: '22:30:00 01/01/2025',
-        },
-    ];
-    
+    const { useremail, lastJsonMessage, messages, sendMessage } = useOutletContext<OutletContextType>();
 
+
+    // const notificationData = [
+    //     {
+    //         id: 1,
+    //         message: 'This is notification 1.',
+    //         timestamp: '09:00:00 13/01/2025',
+    //     },
+    //     {
+    //         id: 2,
+    //         message: 'This is notification 2.',
+    //         timestamp: '14:30:00 12/01/2025',
+    //     },
+    //     {
+    //         id: 3,
+    //         message: 'This is notification 3.',
+    //         timestamp: '12:00:00 12/01/2025',
+    //     },
+    //     {
+    //         id: 4,
+    //         message: 'This is notification 4.',
+    //         timestamp: '08:45:00 13/01/2025',
+    //     },
+    //     {
+    //         id: 5,
+    //         message: 'This is notification 5.',
+    //         timestamp: '16:15:00 11/01/2025',
+    //     },
+    //     {
+    //         id: 6,
+    //         message: 'This is notification 6.',
+    //         timestamp: '10:20:00 10/01/2025',
+    //     },
+    //     {
+    //         id: 7,
+    //         message: 'This is notification 7.',
+    //         timestamp: '11:50:00 09/01/2025',
+    //     },
+    //     {
+    //         id: 8,
+    //         message: 'This is notification 8.',
+    //         timestamp: '15:00:00 08/01/2025',
+    //     },
+    //     {
+    //         id: 9,
+    //         message: 'This is notification 9.',
+    //         timestamp: '13:30:00 07/01/2025',
+    //     },
+    //     {
+    //         id: 10,
+    //         message: 'This is notification 10.',
+    //         timestamp: '09:45:00 06/01/2025',
+    //     },
+    //     {
+    //         id: 11,
+    //         message: 'This is notification 11.',
+    //         timestamp: '18:30:00 05/01/2025',
+    //     },
+    //     {
+    //         id: 12,
+    //         message: 'This is notification 12.',
+    //         timestamp: '20:10:00 04/01/2025',
+    //     },
+    //     {
+    //         id: 13,
+    //         message: 'This is notification 13.',
+    //         timestamp: '21:45:00 03/01/2025',
+    //     },
+    //     {
+    //         id: 14,
+    //         message: 'This is notification 14.',
+    //         timestamp: '08:15:00 02/01/2025',
+    //     },
+    //     {
+    //         id: 15,
+    //         message: 'This is notification 15.',
+    //         timestamp: '22:30:00 01/01/2025',
+    //     },
+    // ];
+    
+    const [newMessage, setNewMessage] = useState('');
+    const [title, setTitle] = useState('');
+    const [message, setMessage] = useState('');
+    const [desc, setDesc] = useState('');
+    
+    const handleSend = () => {
+        if (title.trim() && message.trim() && desc.trim()) {
+            sendMessage(title, message, desc);
+            setTitle('');
+            setMessage('');
+            setDesc('');
+        }
+    };
    
 
   return (
@@ -100,7 +119,7 @@ const Notification = () => {
             title="Notifications"
             category="Page"
         />
-        <Table className="min-w-full border-collapse border border-gray-300 shadow-lg rounded-md">
+        {/* <Table className="min-w-full border-collapse border border-gray-300 shadow-lg rounded-md">
             <TableHeader className="bg-gray-100 border-b border-gray-300">
                 <TableRow>
                     <TableHead className="p-4 text-left text-sm font-semibold text-gray-700">
@@ -138,7 +157,31 @@ const Notification = () => {
                     </TableRow>
                 ))}
             </TableBody>
-        </Table>
+        </Table> */}
+
+        <div className='flex flex-col gap-y-5 w-1/2'>
+            <input
+                type="text"
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Content"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Description"
+                value={desc}
+                onChange={(e) => setDesc(e.target.value)}
+            />
+            <button className='p-5 bg-green-400 rounded-xl w-fit' onClick={handleSend}>Send</button>
+         </div>
+
+
 
         
     </div>

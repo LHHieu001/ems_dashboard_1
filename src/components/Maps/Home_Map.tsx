@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from 'google-map-react';
 import { IoIosWarning } from "react-icons/io";
+import { IoPieChartSharp } from "react-icons/io5";
 
 
 const Home_Map = () => {
@@ -17,10 +18,10 @@ const Home_Map = () => {
       };
     
       return(
-        <div className='flex flex-col p-3 h-full'>
+        <div className='flex flex-col h-full'>
 
             <div className='flex items-center gap-x-3'>
-                <IoIosWarning className='text-white bg-green-500 text-4xl p-1 rounded-full'/>
+                <IoPieChartSharp className='text-white bg-green-500 text-2xl h-fit w-fit p-1 rounded-full'/>
                 <p className='text-lg font-bold'>Bảng đồ vị trí 7 phân hệ</p>
             </div>
 

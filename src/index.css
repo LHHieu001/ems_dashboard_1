@@ -68,6 +68,10 @@ body{
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
+.react-resizable-hide {
+  background-color: transparent !important;
+}
+
 .recharts-legend-wrapper > div{
   @apply grid grid-cols-5 gap-1 !important;
 }

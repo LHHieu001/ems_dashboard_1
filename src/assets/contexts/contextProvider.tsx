@@ -14,6 +14,8 @@ interface StateContextProps {
     setMode: any;
     themeSettings: boolean;
     setThemeSettings: React.Dispatch<React.SetStateAction<boolean>>
+    messages: any[];
+    setMessages: React.Dispatch<React.SetStateAction<any[]>>;
 }
 
 interface ClickState {
@@ -22,6 +24,7 @@ interface ClickState {
     userProfile: boolean;
     notification: boolean;
 }
+ 
 
 const initialState: ClickState = {
     chat: false,
@@ -29,6 +32,7 @@ const initialState: ClickState = {
     userProfile: false,
     notification: false,
 }
+
 
 
 const StateContext = createContext<StateContextProps | undefined>(undefined);
@@ -43,6 +47,7 @@ export const ContextProvider = ({ children }: { children: ReactNode }) =>{
     const [currentColor, setCurrentColor] = useState('#22c55e')
     const [currentMode, setCurrentMode] = useState('Light')
     const [themeSettings, setThemeSettings] = useState(false);
+    const [messages, setMessages] = useState<any[]>([]);
     
     const setMode = (mode : string) => {
       setCurrentMode(mode);
@@ -77,7 +82,9 @@ export const ContextProvider = ({ children }: { children: ReactNode }) =>{
                 setColor,
                 setMode,
                 themeSettings,
-                setThemeSettings
+                setThemeSettings,
+                messages,
+                setMessages
             }}
         >
             {children}

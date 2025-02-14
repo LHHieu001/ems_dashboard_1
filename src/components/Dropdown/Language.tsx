@@ -30,12 +30,12 @@ const Language = () => {
     };
 
   return (
-    <div className='w-36'>
+    <div className='w-16 xl:w-36'>
         <Dropdown 
             label={
                 <p className='flex flex-row gap-x-3'>
                     <img src={selectedLanguage.flag} style={{ height: '20px' }} />
-                    {selectedLanguage.label}
+                    <p className='hidden xl:block'>{selectedLanguage.label}</p>
                 </p>
             }
             dismissOnClick={false} 
@@ -49,7 +49,7 @@ const Language = () => {
                     onClick={() => handleLanguageChange(lang.value)}
                 >
                     <img src={lang.flag} style={{ height: '20px' }} />
-                    {lang.label}
+                    <p>{lang.label}</p>
                 </Dropdown.Item>
                 ))}
         </Dropdown>

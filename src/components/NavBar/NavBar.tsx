@@ -16,7 +16,7 @@ import { IoMenu } from "react-icons/io5";
 import DarkLight from '../Button/DarkLight';
 import Language from '../Dropdown/Language';
 import SearchBar from '../SearchBar/SearchBar';
-
+import SearchBarMobile from '../SearchBar/SearchBarMobile';
 
 type NavButtonProps = {
   title: string;
@@ -51,7 +51,7 @@ const NavButton = ({title, customFunc, icon, color, noti} : NavButtonProps) => {
 
 const NavBar = () => {
 
-  const { currentColor, activeMenu, setActiveMenu, isClicked, handleClick, screenSize, setScreenSize  } = useStateContext();
+  const { currentColor, activeMenu, setActiveMenu, isClicked, handleClick, screenSize, setScreenSize, messages  } = useStateContext();
 
   useEffect(() => {
     const handleSize = () => setScreenSize(window.innerWidth);
@@ -95,6 +95,7 @@ const NavBar = () => {
             dotColor='#03C9D7'
           /> */}
 
+          <SearchBarMobile />
           <Language />
           <DarkLight />
 
@@ -103,7 +104,7 @@ const NavBar = () => {
             customFunc={() => handleClick('notification')}
             icon={<IoMdNotifications style={{fontSize: '25px'}} />}
             color={'#5c6c84'}
-            noti={true}
+            noti={messages.length ? true : false}
           />
 
           <div

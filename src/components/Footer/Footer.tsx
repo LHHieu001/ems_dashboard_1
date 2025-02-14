@@ -40,8 +40,6 @@ const Footer = () => {
                             <p className='flex flex-row gap-x-2 items-center'> <CiMail className='text-green-500 text-xl'/> khaipham2204@gmail.com</p>
                             <p className='flex flex-row gap-x-2 items-center'> <FaEarthAsia className='text-green-500 text-xl'/> www.canammo.com</p>
                         </div>
-
-                       
                     </div>
                 </div>
 

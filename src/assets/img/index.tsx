@@ -10,6 +10,8 @@ import Cocogoat from './Cocogoat.png'
 import Nhan from './thanhNhan.png'
 import Vietnam from './flag-vietnam.svg'
 import England from './flag-england.svg'
+import Login_Img from './login_img.jpeg'
+import MainLogo from './logo.png'
 
 export const assets =  {
     cloudy,
@@ -23,5 +25,7 @@ export const assets =  {
     Cocogoat,
     Nhan,
     Vietnam,
-    England
+    England,
+    Login_Img,
+    MainLogo
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { IoIosWarning } from 'react-icons/io';
+import { IoPieChartSharp } from "react-icons/io5";
 
 
 const Home_Table = () => {
@@ -19,10 +20,10 @@ const Home_Table = () => {
 
     
   return (
-    <div className='flex flex-col p-3 text-sm'>
+    <div className='flex flex-col text-sm'>
         
         <div className='flex items-center gap-x-3'>
-            <IoIosWarning className='text-white bg-green-500 text-4xl p-1 rounded-full'/>
+            <IoPieChartSharp className='text-white bg-green-500 text-2xl h-fit w-fit p-1 rounded-full'/>
             <p className='text-lg font-bold'>Thống kê chỉ số có giá trị tăng cao nhất</p>
         </div>
 
